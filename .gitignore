@@ -1,6 +1,21 @@
-uploads/products/*
-!uploads/products/.gitkeep
+# Sensitive config files
 config/db.php
 includes/mailer.php
+
+# Uploaded product images
+uploads/products/*
+!uploads/products/.gitkeep
+
+# Test files
 test-email.php
+
+# Mac system files
 .DS_Store
+.DS_Store?
+._*
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
