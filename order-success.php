@@ -78,7 +78,7 @@ body { font-family: 'Inter', sans-serif; background: #f5f5f7; color: #1d1d1f; }
 <!-- NAVBAR -->
 <nav class="navbar-blur fixed top-0 left-0 right-0 z-50 no-print">
     <div style="max-width:700px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:56px;">
-        <a href="index.php"><img src="assets/images/logo.png" alt="Frank Gadgets" style="height:40px;width:auto;"></a>
+        <a href="index.php"><img src="assets/images/logo.png" alt="Frank Gadgets" class="h-12 w-auto"></a>
         <a href="shop.php" style="font-size:14px;color:#0071e3;font-weight:600;text-decoration:none;">Continue Shopping →</a>
     </div>
 </nav>

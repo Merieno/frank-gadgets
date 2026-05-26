@@ -143,9 +143,10 @@ tailwind.config = {
 
 <nav class="navbar-blur fixed top-0 left-0 right-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14">
-        <a href="index.php" class="flex items-center flex-shrink-0">
-            <img src="assets/images/logo.png" alt="Frank Gadgets" class="h-10 w-auto">
-        </a>
+        <a href="index.php" class="flex items-center gap-2 flex-shrink-0">
+    <img src="assets/images/logo.png" alt="Frank Gadgets" class="h-12 w-auto">
+    <span class="font-bold text-fg-dark text-base tracking-tight">Frank Gadgets</span>
+</a>
         <div class="hidden md:flex items-center gap-2 text-xs font-medium">
             <span class="text-fg-blue">🛒 Cart</span>
             <span class="text-fg-gray mx-2">›</span>

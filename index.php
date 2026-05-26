@@ -156,9 +156,10 @@ tailwind.config = {
     <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14">
 
         <!-- Logo -->
-        <a href="index.php" class="flex items-center flex-shrink-0">
-            <img src="assets/images/logo.png" alt="Frank Gadgets" class="h-10 w-auto">
-        </a>
+        <a href="index.php" class="flex items-center gap-2 flex-shrink-0">
+    <img src="assets/images/logo.png" alt="Frank Gadgets" class="h-12 w-auto">
+    <span class="font-bold text-fg-dark text-base tracking-tight">Frank Gadgets</span>
+</a>
 
         <!-- Nav links (desktop) -->
         <div class="hidden md:flex items-center gap-6">
