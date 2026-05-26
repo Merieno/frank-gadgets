@@ -1,0 +1,6 @@
+uploads/products/*
+!uploads/products/.gitkeep
+config/db.php
+includes/mailer.php
+test-email.php
+.DS_Store

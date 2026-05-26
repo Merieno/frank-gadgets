@@ -1,0 +1,414 @@
+/* ============================================
+   Frank Gadgets — Main Stylesheet
+   ============================================ */
+
+/* ── Reset & Base ── */
+*, *::before, *::after {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #1d1d1f;
+    background: #ffffff;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ── CSS Variables ── */
+:root {
+    --blue:       #0071e3;
+    --blue-dark:  #0058b0;
+    --dark:       #1d1d1f;
+    --gray:       #6e6e73;
+    --light:      #f5f5f7;
+    --white:      #ffffff;
+    --red:        #ef4444;
+    --green:      #16a34a;
+    --amber:      #f59e0b;
+    --radius-sm:  8px;
+    --radius:     12px;
+    --radius-lg:  20px;
+    --radius-xl:  28px;
+    --shadow-sm:  0 1px 4px rgba(0,0,0,0.06);
+    --shadow:     0 4px 20px rgba(0,0,0,0.08);
+    --shadow-lg:  0 20px 60px rgba(0,0,0,0.12);
+    --transition: 0.25s ease;
+}
+
+/* ── Navbar ── */
+.navbar-blur {
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 50;
+    transition: box-shadow var(--transition);
+}
+
+.cart-badge {
+    position: absolute;
+    top: -6px; right: -6px;
+    background: var(--blue);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.search-bar {
+    background: rgba(0,0,0,0.06);
+    border: none;
+    border-radius: 980px;
+    padding: 8px 16px 8px 38px;
+    font-size: 14px;
+    outline: none;
+    transition: background var(--transition), width 0.3s ease;
+    width: 180px;
+    font-family: inherit;
+}
+.search-bar:focus {
+    background: rgba(0,0,0,0.1);
+    width: 240px;
+}
+
+/* ── Buttons ── */
+.btn-primary {
+    background: var(--blue);
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 980px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background var(--transition), transform var(--transition);
+    display: inline-block;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+}
+.btn-primary:hover {
+    background: var(--blue-dark);
+    transform: scale(1.02);
+}
+
+.btn-ghost {
+    border: 1.5px solid var(--blue);
+    color: var(--blue);
+    padding: 11px 28px;
+    border-radius: 980px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all var(--transition);
+    display: inline-block;
+    cursor: pointer;
+    background: transparent;
+    font-family: inherit;
+}
+.btn-ghost:hover {
+    background: var(--blue);
+    color: #fff;
+}
+
+/* ── Section eyebrow ── */
+.section-eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--blue);
+}
+
+/* ── Hero gradient text ── */
+.hero-gradient {
+    background: linear-gradient(135deg, #1d1d1f 0%, #515154 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ── Product cards ── */
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+}
+.product-card img {
+    transition: transform 0.5s ease;
+}
+.product-card:hover img {
+    transform: scale(1.05);
+}
+
+/* ── Category cards ── */
+.cat-card {
+    transition: all 0.3s ease;
+}
+.cat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+}
+
+/* ── Out of stock overlay ── */
+.oos-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ── Promo banner ── */
+.promo-bg {
+    background: linear-gradient(135deg, #1d1d1f 0%, #2d2d30 100%);
+}
+
+/* ── Scroll reveal ── */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── Toast notification ── */
+#toast {
+    position: fixed;
+    bottom: 24px; right: 24px;
+    z-index: 9999;
+    transform: translateY(80px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+#toast.show {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ── Product image thumb ── */
+.thumb {
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+    flex-shrink: 0;
+}
+.thumb:hover { transform: scale(1.03); }
+.thumb.active { border-color: var(--blue); }
+
+/* ── Qty stepper ── */
+.qty-btn {
+    width: 36px; height: 36px;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.15s;
+    user-select: none;
+    background: white;
+    flex-shrink: 0;
+}
+.qty-btn:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+}
+
+/* ── Filter chips ── */
+.filter-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 980px;
+    font-size: 13px;
+    font-weight: 500;
+    border: 1.5px solid #e5e7eb;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: white;
+    color: var(--dark);
+    white-space: nowrap;
+    text-decoration: none;
+}
+.filter-chip:hover,
+.filter-chip.active {
+    background: var(--blue);
+    color: white;
+    border-color: var(--blue);
+}
+
+/* ── Form inputs (checkout) ── */
+.form-input {
+    width: 100%;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background: white;
+    font-family: inherit;
+    color: var(--dark);
+}
+.form-input:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(0,113,227,0.1);
+}
+.form-input.error {
+    border-color: var(--red);
+}
+.form-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 6px;
+    display: block;
+}
+
+/* ── Cart item ── */
+.cart-item {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.cart-item.removing {
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+/* ── Payment option ── */
+.payment-option {
+    border: 1.5px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.payment-option:has(input:checked) {
+    border-color: var(--blue);
+    background: #f0f7ff;
+}
+
+/* ── Sticky buy bar ── */
+#sticky-buy {
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+#sticky-buy.visible {
+    transform: translateY(0);
+}
+
+/* ── Tab buttons ── */
+.tab-btn {
+    transition: all 0.2s;
+    border-bottom: 2px solid transparent;
+}
+.tab-btn.active {
+    color: var(--dark);
+    border-bottom-color: var(--blue);
+}
+
+/* ── Breadcrumb ── */
+.breadcrumb a:hover { color: var(--blue); }
+
+/* ── No scrollbar ── */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ── Animations ── */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+@keyframes checkPop {
+    0%   { transform: scale(0); opacity: 0; }
+    60%  { transform: scale(1.15); }
+    100% { transform: scale(1); opacity: 1; }
+}
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.fade-up   { animation: fadeUp 0.5s ease forwards; }
+.fade-in   { animation: fadeIn 0.4s ease forwards; }
+.check-anim{ animation: checkPop 0.5s ease forwards; }
+.spin      { animation: spin 0.8s linear infinite; }
+
+.fade-up-1 { animation-delay: 0.1s; opacity: 0; }
+.fade-up-2 { animation-delay: 0.2s; opacity: 0; }
+.fade-up-3 { animation-delay: 0.3s; opacity: 0; }
+
+/* ── Skeleton loader ── */
+.skeleton {
+    animation: shimmer 1.5s infinite linear;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    border-radius: 8px;
+}
+@keyframes shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #d1d5db; }
+
+/* ── Responsive helpers ── */
+@media (max-width: 640px) {
+    .btn-primary, .btn-ghost {
+        padding: 11px 20px;
+        font-size: 14px;
+    }
+    #toast {
+        bottom: 16px; right: 16px; left: 16px;
+        right: 16px;
+    }
+}
+
+/* ── Line clamp utility ── */
+.line-clamp-1 { overflow:hidden; display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical; }
+.line-clamp-2 { overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; }
+.line-clamp-3 { overflow:hidden; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; }
