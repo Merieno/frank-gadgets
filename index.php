@@ -524,10 +524,8 @@ tailwind.config = {
             <div>
                 <h4 class="font-semibold text-sm mb-4 text-gray-300">Help</h4>
                 <div class="flex flex-col gap-2">
-                    <a href="#" class="text-gray-400 text-sm hover:text-white transition-colors">Track Order</a>
-                    <a href="#" class="text-gray-400 text-sm hover:text-white transition-colors">Returns</a>
-                    <a href="#" class="text-gray-400 text-sm hover:text-white transition-colors">Warranty</a>
-                    <a href="#" class="text-gray-400 text-sm hover:text-white transition-colors">Contact Us</a>
+                    <a href="track.php" class="text-gray-400 text-sm hover:text-white transition-colors">Track Order</a>
+<a href="contact.php" class="text-gray-400 text-sm hover:text-white transition-colors">Contact Us</a>
                 </div>
             </div>
 
